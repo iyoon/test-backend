@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    active: local
+
+server:
+  port: 10808
+  connection-timeout: 5000
+
+
+logging:
+  file: '/Users/nhnent/logs/test-target-api'
+  pattern:
+    file: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+    console: '%d{yyyy-MMM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+  level:
+    com.nhnent.apigw.test: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+---
+
+spring:
+  profiles: release
+
+logging:
+  file: '/home1/irteam/logs/test-target-api'
+  level:
+    com.nhnent.apigw.test: info
