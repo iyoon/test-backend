@@ -1,5 +1,7 @@
 package com.nhnent.apigw.test.apigwtestapi.web;
 
+import com.nhnent.apigw.test.apigwtestapi.bean.DomainResponse;
+import com.nhnent.apigw.test.apigwtestapi.bean.PostCollectBulkLogLogAndCrashResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.http.HttpStatus;
@@ -117,6 +119,14 @@ public class TargetApiController {
             log.error("getDelaySec sleep throw exception");
         }
         return RandomStringUtils.randomAlphanumeric(100);
+    }
+
+
+    @PostMapping("/v2/log")
+    public PostCollectBulkLogLogAndCrashResponse postLogAndCrash() {
+
+        return PostCollectBulkLogLogAndCrashResponse.SUCCESS_RESPONSE;
+
     }
 
 }
