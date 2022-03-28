@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class TargetApiController {
 
-    @RequestMapping(value = {"/request-info", "/request-info/**"})
+    @RequestMapping(value = {"/**"})
     public Map<String, Object> requestInfo(HttpServletRequest request, HttpServletResponse response) {
 
         Map<String, String> headers = Collections.list(request.getHeaderNames())
@@ -51,7 +51,7 @@ public class TargetApiController {
 
 
     @GetMapping("/error/500")
-    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
     public String getInternalError() {
         return "";
     }
